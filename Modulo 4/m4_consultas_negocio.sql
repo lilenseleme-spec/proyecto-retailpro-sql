@@ -10,14 +10,14 @@ GO
 -- Total facturado, cantidad de pedidos y ticket promedio por mes.
 -- El total de cada venta se calcula como cantidad * precio_unitario.
 SELECT
-    YEAR(fecha_venta)                                        AS anio,
+    YEAR(fecha_venta)                                        AS año,
     MONTH(fecha_venta)                                       AS mes,
     SUM(cantidad * precio_unitario)                          AS total_facturado,
     COUNT(*)                                                 AS cantidad_pedidos,
     CAST(AVG(cantidad * precio_unitario) AS DECIMAL(10,2))   AS ticket_promedio
 FROM ventas
 GROUP BY YEAR(fecha_venta), MONTH(fecha_venta)
-ORDER BY anio, mes;
+ORDER BY año, mes;
 
 
 -- === CONSULTA 2: Ranking de productos ===
